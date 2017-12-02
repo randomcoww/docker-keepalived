@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: keepalived
+spec:
+  restartPolicy: Always
+  hostNetwork: true
+  containers:
+  - name: keepalived
+    image: randomcoww/k8s-keepalived:latest
+    env:
+    - name: CONFIG
+      value: |
+        vrrp_sync_group VG_haproxy {
+        	group {
+        		VI_haproxy
+        	}
+        }
+        vrrp_instance VI_haproxy {
+        	state BACKUP
+        	virtual_router_id 31
+        	interface eth0
+        	authentication {
+        		auth_type AH
+        		auth_pass PASSWD
+        	}
+        	virtual_ipaddress {
+        		192.168.62.220/23
+        	}
+        }

@@ -12,12 +12,12 @@ spec:
     env:
     - name: CONFIG
       value: |
-        vrrp_sync_group VG_haproxy {
+        vrrp_sync_group VG_group {
         	group {
-        		VI_haproxy
+        		VI_group
         	}
         }
-        vrrp_instance VI_haproxy {
+        vrrp_instance VI_group {
         	state BACKUP
         	virtual_router_id 31
         	interface eth0

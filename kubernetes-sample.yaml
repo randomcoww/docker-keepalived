@@ -8,7 +8,7 @@ spec:
   hostNetwork: true
   containers:
   - name: keepalived
-    image: randomcoww/k8s-keepalived:latest
+    image: randomcoww/keepalived:latest
     env:
     - name: CONFIG
       value: |

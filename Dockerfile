@@ -3,8 +3,7 @@ FROM alpine:edge
 RUN set -x \
   \
   && apk add --no-cache \
-    keepalived \
-    nftables
+    keepalived
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]

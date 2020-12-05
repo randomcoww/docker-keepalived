@@ -4,6 +4,7 @@ RUN set -x \
   \
   && apk add --no-cache \
     keepalived \
-    nftables
+    nftables \
+    ipvsadm
 
 ENTRYPOINT ["/usr/sbin/keepalived", "-l", "-n"]
